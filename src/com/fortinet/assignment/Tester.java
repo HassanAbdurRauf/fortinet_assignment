@@ -231,7 +231,7 @@ class MultiDimensionArray {
 	// This is a provided function, Assume it works
 	public static Long getValue(int indexOfDimension) {
 		// ...
-		return (long) 0.0; //stub
+		return (long) 0.0; // stub
 	}
 
 	// lengthOfDeminsion: each dimension's length, assume it is valid:
@@ -255,8 +255,10 @@ class MultiDimensionArray {
 		long sum = 0;
 		int index = 1;
 		for (int dimension : lengthOfDimension) {
-			for (int i = 0; i < dimension; i++)
-				sum += mArray.getValue(index++ * dimension + i);
+			for (int i = 0; i < dimension; i++) {
+				sum += mArray.getValue(index * dimension + i);
+			}
+			index++;
 		}
 
 		return sum;
@@ -346,7 +348,7 @@ class Client {
 	// We can use also an open source library to serve this problem. i.e
 	// JMock,EasyMock,Mockito
 	// All of these are used to mock the unimplemented services
-	
-	//Another way could be using hsqldb, h2 in memory databases
+
+	// Another way could be using hsqldb, h2 in memory databases
 
 }
