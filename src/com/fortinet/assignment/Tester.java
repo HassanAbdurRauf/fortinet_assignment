@@ -231,7 +231,7 @@ class MultiDimensionArray {
 	// This is a provided function, Assume it works
 	public static Long getValue(int indexOfDimension) {
 		// ...
-		return (long) 0.0;
+		return (long) 0.0; //stub
 	}
 
 	// lengthOfDeminsion: each dimension's length, assume it is valid:
@@ -256,7 +256,7 @@ class MultiDimensionArray {
 		int index = 1;
 		for (int dimension : lengthOfDimension) {
 			for (int i = 0; i < dimension; i++)
-				sum += mArray.getValue(index * dimension + i);
+				sum += mArray.getValue(index++ * dimension + i);
 		}
 
 		return sum;
