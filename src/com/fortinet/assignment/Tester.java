@@ -24,9 +24,8 @@ public class Tester {
 		n1.next.next.next = new Node();
 		n1.next.next.next.value = 4;
 
-		//assertEquals(isReversed(n1, reverse(n1)), true);
-		long num= MultiDimensionArray.getValue(2);
-		assertEquals(num, (long) 0.0);
+		assertEquals(isReversed(n1, reverse(n1)), true);
+
 	}
 
 	// Tester for separate function
@@ -238,32 +237,54 @@ class MultiDimensionArray {
 	// lengthOfDeminsion: each dimension's length, assume it is valid:
 	// lengthOfDeminsion[i]>0.
 	public static Long sum(MultiDimensionArray mArray, int[] lengthOfDimension) {
-		// Resolution: As we already know the implementation of an array is
-		// contiguous in memory, so the
-		// ith index of the nth dimension of the array can be reached by simply
-		// multiplying the length of
-		// the dimension by the row number i.e n and adding up the index i.e i
-		// to the sum.
+		// Resolution: Using mathematics I derived a formula, converted the the
+		// indexes of array to decimal number and then calculated all the
+		// possible combinations
 
 		// Time complexity of this algorithm is O(N*M) where N is the number of
 		// dimensions and M is the max
 		// length of all the dimension
 
-		// Space complexity will be O(1) as there is no extra space or constant
-		// space required to sum
-		// the array
+		// Space complexity will be O(N) (N is total number of dimensions), space
+		// is required for index array to get value from predefined method
 
 		long sum = 0;
 		int totalLength = 0;
-		for (int dimension : lengthOfDimension) {
-			totalLength *= dimension;
-		}
-		
-		for (int i = 0; i < totalLength; i++)
-		{
-			sum += getValue(i);
+		int[] index = new int[lengthOfDimension.length];
+
+		for (int i = 0; i < lengthOfDimension.length; i++) {
+			totalLength += lengthOfDimension[i] * Math.pow(10, i);
 		}
 
+		while (totalLength > 0) {
+			int temp = totalLength;
+			int flag = 0;
+			for (int i = 0; i < lengthOfDimension.length; i++) {
+				int idx = temp % 10;
+				temp = temp / 10;
+				if (idx < lengthOfDimension[i]) {
+					index[i] = idx;
+				} else {
+					flag = 1;
+					break;
+				}
+			}
+
+			if (flag == 0) {
+				sum += mArray.getValue(index);
+			}
+
+			for (int j = 0; j < lengthOfDimension.length; j++) {
+				index[j] = 0;
+			}
+
+			totalLength--;
+
+		}
+
+		// value of very first index of the array is added as was missed in
+		// calculation
+		sum += mArray.getValue(index);
 		return sum;
 	}
 }
