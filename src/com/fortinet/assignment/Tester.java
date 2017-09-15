@@ -24,8 +24,9 @@ public class Tester {
 		n1.next.next.next = new Node();
 		n1.next.next.next.value = 4;
 
-		assertEquals(isReversed(n1, reverse(n1)), true);
-
+		//assertEquals(isReversed(n1, reverse(n1)), true);
+		long num= MultiDimensionArray.getValue(2);
+		assertEquals(num, (long) 0.0);
 	}
 
 	// Tester for separate function
@@ -255,7 +256,7 @@ class MultiDimensionArray {
 		long sum = 0;
 		int totalLength = 0;
 		for (int dimension : lengthOfDimension) {
-			totalLength += dimension;
+			totalLength *= dimension;
 		}
 		
 		for (int i = 0; i < totalLength; i++)
