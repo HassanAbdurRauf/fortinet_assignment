@@ -229,7 +229,7 @@ class Node {
 class MultiDimensionArray {
 
 	// This is a provided function, Assume it works
-	public static Long getValue(int indexOfDimension) {
+	public static Long getValue(int... indexOfDimension) {
 		// ...
 		return (long) 0.0; // stub
 	}
@@ -253,12 +253,14 @@ class MultiDimensionArray {
 		// the array
 
 		long sum = 0;
-		int index = 1;
+		int totalLength = 0;
 		for (int dimension : lengthOfDimension) {
-			for (int i = 0; i < dimension; i++) {
-				sum += mArray.getValue(index * dimension + i);
-			}
-			index++;
+			totalLength += dimension;
+		}
+		
+		for (int i = 0; i < totalLength; i++)
+		{
+			sum += getValue(i);
 		}
 
 		return sum;
