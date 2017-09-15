@@ -237,7 +237,7 @@ class MultiDimensionArray {
 	// lengthOfDeminsion: each dimension's length, assume it is valid:
 	// lengthOfDeminsion[i]>0.
 	public static Long sum(MultiDimensionArray mArray, int[] lengthOfDimension) {
-		// Resolution: As we already now the implementation of an array is
+		// Resolution: As we already know the implementation of an array is
 		// contiguous in memory, so the
 		// ith index of the nth dimension of the array can be reached by simply
 		// multiplying the length of
