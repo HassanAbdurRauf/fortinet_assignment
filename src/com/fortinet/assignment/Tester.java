@@ -241,9 +241,8 @@ class MultiDimensionArray {
 		// indexes of array to decimal number and then calculated all the
 		// possible combinations
 
-		// Time complexity of this algorithm is O(N*M) where N is the number of
-		// dimensions and M is the max
-		// length of all the dimension
+		// Time complexity of this algorithm is O((K+1)*(10^(N-1))) where N is the number of
+		// dimensions and K is the dimension of first index of lengthOfDimension array
 
 		// Space complexity will be O(N) (N is total number of dimensions), space
 		// is required for index array to get value from predefined method
