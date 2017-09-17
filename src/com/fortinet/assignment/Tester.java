@@ -364,14 +364,11 @@ class Client {
 
 	// Solution to 5
 	// JUnit Testing for Service Methods
-	// The concept of the proposed solution is originated from the idea of
-	// stubs and drivers or in other words mocking.
-	// We can simulate the DAOS using stubs in order to achieve unit testing
+	// We can use in memory databases to serve this purpose some of the
+	// in memory databases available are hsqldb and h2
 
 	// We can use also an open source library to serve this problem. i.e
 	// JMock,EasyMock,Mockito
 	// All of these are used to mock the unimplemented services
-
-	// Another way could be using hsqldb, h2 in memory databases
 
 }
